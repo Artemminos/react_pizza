@@ -37,7 +37,6 @@ function Cart() {
   const onClickOrder = () => {
     console.log('ВАШ ЗАКАЗ', items);
   };
-
   return (
     <div className="container container--cart">
       {totalCount ? (
