@@ -106,3 +106,16 @@ const yearmonth = moment().set('year',2010).set('month',0)
 console.log(yearmonth.format('DD MM YYYY hh:mm:ss'))
 const customTime = moment().add(7,'day').add(10,'hour')
 console.log(moment(customTime).format('DD MM YYYY hh:mm:ss'))
+
+function countDown(number) {
+
+    console.log(number);
+
+    const newNumber = number - 1;
+
+    if (newNumber > 0) {
+        countDown(newNumber);
+    }
+}
+
+countDown(4);
