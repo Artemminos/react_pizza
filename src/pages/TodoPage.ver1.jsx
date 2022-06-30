@@ -6,6 +6,7 @@ export const TodoPage = () => {
     const asyncFN = async () => {
         return 'ASYNC'
     }
+    asyncFN()
     const obj = {
         data: 'art',
         status: '123',
@@ -25,14 +26,11 @@ export const TodoPage = () => {
             } else if (status === 203) {
                 //other code
             }
-            //console.log('выполнюсь если запрос успешен')
             setServerData(data)
         })
             .catch((data) => {
-                //console.log('выполнюсь если была ошибка')
             })
             .finally(() => {
-                //console.log('выполнюсь в любом случае')
             })
 
         /*asyncFN().then((val)=>{ // first async function

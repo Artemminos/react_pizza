@@ -1,26 +1,32 @@
 import React from 'react';
-import {TodoPage} from './pages/TodoPage.ver3.jsx'
-import {Tabs} from './pages/Tabs'
-import {Header} from './components';
-import {Home, Cart} from './pages';
-import {Route} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment, changeCustomVal } from './firstSice'
 
 function App() {
-
+    const {value, customValue} = useSelector((state) => state.counter)
+    const dispatch = useDispatch()
 
     return (
         <div className="wrapper">
-           <Header/>{/*шапка сайта*/}
-            <div className="content">
-
-                <Route path="/Tabs" component={Tabs} exact/>
-                {/*
-       <Route
-        path="/exampleroute" путь по которому откроется компонент ExampleComponent
-         component={ExampleComponent} компонент который отобразится по роуту exampleroute
-          exact на потом
-           />
-       */}
+            <div>
+                <button
+                    aria-label="Increment value"
+                    onClick={() => dispatch(increment())}
+                >
+                    Increment
+                </button>
+                {value}
+                <button
+                    aria-label="Decrement value"
+                    onClick={() => dispatch(decrement())}
+                >
+                    Decrement
+                </button>
+                <input type="text" onChange={(event)=>{
+                    const value = event.target.value
+                    dispatch(changeCustomVal(value))
+                }}/>
+                <h1>{customValue}</h1>
             </div>
         </div>
     );
